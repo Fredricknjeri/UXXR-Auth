@@ -44,12 +44,12 @@ class _ConfirmCodeState extends State<ConfirmCode> {
     return Container(
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
-            color: Colors.grey.shade300,
+            // color: Colors.grey.shade300,
             blurRadius: 1,
             offset: const Offset(0, 2),
             spreadRadius: 1)
       ], color: Colors.grey.shade200, borderRadius: BorderRadius.circular(12)),
-      width: 64,
+      width: 69,
       child: TextFormField(
           autofocus: autofocus,
           focusNode: focus,
