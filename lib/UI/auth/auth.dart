@@ -50,62 +50,135 @@ class _ChooseAuthState extends State<ChooseAuth> {
             ),
             const Spacer(),
             Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Row(
-                    children: [
-                      Container(
-                        height: 24.h,
-                        width: 54.w,
-                        child: CountryCodePicker(
-                            onChanged: print,
-                            // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
-                            initialSelection: 'IT',
-                            favorite: const ['+39', 'FR'],
-                            // optional. Shows only country name and flag
-                            showCountryOnly: false,
-                            // optional. Shows only country name and flag when popup is closed.
-                            showOnlyCountryWhenClosed: false,
-                            // optional. aligns the flag and the Text left
-                            alignLeft: false,
-                            hideMainText: true),
-                      ),
-                      SizedBox(
-                        height: 34.h,
-                        width: 124.w,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: TextField(
-                            decoration: const InputDecoration(
-                                labelText: "Enter your number",
-                                labelStyle: TextStyle()),
-                            keyboardType: TextInputType.number,
-                            inputFormatters: <TextInputFormatter>[
-                              FilteringTextInputFormatter.digitsOnly
-                            ], // Only numbers can be entered
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextField(
-                      decoration: const InputDecoration(
-                          labelText: "Enter your number",
-                          labelStyle: TextStyle()),
-                      keyboardType: TextInputType.number,
-                      inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly
-                      ], // Only numbers can be entered
-                    ),
-                  ),
-                ],
+              height: 69.h,
+              decoration: BoxDecoration(
+              //  border: 
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: TextField(
+              
+                // controller: _numberController,
+                keyboardType: TextInputType.number,
+                textAlign: TextAlign.start,
+                style: GoogleFonts.poppins(
+                    color: Colors.black,
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w700),
+                textAlignVertical: TextAlignVertical.center,
+                decoration: InputDecoration(
+                  border:  OutlineInputBorder(
+                    borderSide:  BorderSide(color: borderColor)),
+                  // contentPadding: const EdgeInsets.all(16),
+                  labelText: "Enter your number",
+                  labelStyle: TextStyle(),
+                  // border: InputBorder.none,
+                  isCollapsed: false,
+                  isDense: true,
+                  prefix: CountryCodePicker(
+                      onChanged: print,
+                      // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
+                      initialSelection: 'IT',
+                      favorite: const ['+39', 'FR'],
+                      // optional. Shows only country name and flag
+                      showCountryOnly: false,
+                      // optional. Shows only country name and flag when popup is closed.
+                      showOnlyCountryWhenClosed: false,
+                      // optional. aligns the flag and the Text left
+                      alignLeft: false,
+                      hideMainText: true),
+                ),
               ),
             ),
+            // Container(
+            //   child: Column(
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: <Widget>[
+            //       Row(
+            //         mainAxisAlignment: MainAxisAlignment.start,
+            //         children: [
+            //           Container(
+            //             height: 24.h,
+            //             width: 54.w,
+            //             child:
+            // CountryCodePicker(
+            //                 onChanged: print,
+            //                 // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
+            //                 initialSelection: 'IT',
+            //                 favorite: const ['+39', 'FR'],
+            //                 // optional. Shows only country name and flag
+            //                 showCountryOnly: false,
+            //                 // optional. Shows only country name and flag when popup is closed.
+            //                 showOnlyCountryWhenClosed: false,
+            //                 // optional. aligns the flag and the Text left
+            //                 alignLeft: false,
+            //                 hideMainText: true),
+            //           ),
+            //           SizedBox(
+            //             height: 34.h,
+            //             width: 124.w,
+            //             child: Padding(
+            //               padding: const EdgeInsets.all(8.0),
+            //               child: TextField(
+            //                 decoration: const InputDecoration(
+            //                     labelText: "Enter your number",
+            //                     labelStyle: TextStyle()),
+            //                 keyboardType: TextInputType.number,
+            //                 inputFormatters: <TextInputFormatter>[
+            //                   FilteringTextInputFormatter.digitsOnly
+            //                 ], // Only numbers can be entered
+            //               ),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //       Padding(
+            //         padding: const EdgeInsets.all(8.0),
+            //         child: TextField(
+            //           decoration: const InputDecoration(
+            //               labelText: "Enter your number",
+            //               labelStyle: TextStyle()),
+            //           keyboardType: TextInputType.number,
+            //           inputFormatters: <TextInputFormatter>[
+            //             FilteringTextInputFormatter.digitsOnly
+            //           ], // Only numbers can be entered
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+             SizedBox(
+              height: 24.h,
+            ),
+            GestureDetector(
+              onTap: () {},
+              child: Container(
+                  height: 50,
+                  width: double.infinity,
+                  // ignore: prefer_const_constructors
+                  decoration: BoxDecoration(
+                    color: buttonColor,
+                  ),
+                  child: Center(
+                      child: Text('Continue',
+                          style: GoogleFonts.poppins(
+                              color: ligtTextColor,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w400)))),
+            ),
             SizedBox(
-              height: 184.h,
+              height: 21.h,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                  "By signing up I agree to Zëdfi’s Privacy Policy and Terms of Use and allow Zedfi to use your information for future Marketing purposes.",
+                  style: GoogleFonts.poppins(
+                      color: ligtTextColor,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w400)),
+            ),
+            SizedBox(
+              height: 34.h,
             ),
           ],
         ),
