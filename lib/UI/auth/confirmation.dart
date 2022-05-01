@@ -19,6 +19,8 @@ class _ConfirmCodeState extends State<ConfirmCode> {
   final FocusNode _field2 = FocusNode();
   final FocusNode _field3 = FocusNode();
   final FocusNode _field4 = FocusNode();
+  final FocusNode _field5 = FocusNode();
+  final FocusNode _field6 = FocusNode();
 
   @override
   void initState() {
@@ -31,6 +33,8 @@ class _ConfirmCodeState extends State<ConfirmCode> {
     _field2.dispose();
     _field3.dispose();
     _field4.dispose();
+    _field5.dispose();
+    _field6.dispose();
     super.dispose();
   }
 
@@ -42,26 +46,28 @@ class _ConfirmCodeState extends State<ConfirmCode> {
 
   Widget field({FocusNode? focus, FocusNode? next, bool autofocus = false}) {
     return Container(
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(
-            // color: Colors.grey.shade300,
-            blurRadius: 1,
-            offset: const Offset(0, 2),
-            spreadRadius: 1)
-      ], color: Colors.grey.shade200, borderRadius: BorderRadius.circular(12)),
-      width: 69,
+      decoration: BoxDecoration(
+          border: Border.all(
+            color: borderColor,
+          ),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8.r)),
+      width: 47.w,
+      height: 69.h,
       child: TextFormField(
           autofocus: autofocus,
           focusNode: focus,
           keyboardType: TextInputType.number,
           textAlign: TextAlign.center,
-          style: GoogleFonts.inter(
-              fontWeight: FontWeight.w500, color: Colors.black),
+          style: GoogleFonts.poppins(
+              color: Colors.black,
+              fontSize: 18.sp,
+              fontWeight: FontWeight.w700),
           onChanged: (e) {
             next != null ? nextField(value: e, focus: next) : null;
           },
           decoration: const InputDecoration(
-              fillColor: Colors.green,
+              // fillColor: Colors.green,
               border: OutlineInputBorder(borderSide: BorderSide.none))),
     );
   }
@@ -72,13 +78,6 @@ class _ConfirmCodeState extends State<ConfirmCode> {
       appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          // leading: IconButton(
-          //   onPressed: () {
-          //     Navigator.pop(context);
-          //   },
-          //   icon: const Icon(Icons.arrow_back, color: Colors.black),
-          // ),
-          // centerTitle: true,
           automaticallyImplyLeading: false,
           title: Text('We’ve sent you a code',
               style: GoogleFonts.poppins(
@@ -107,7 +106,7 @@ class _ConfirmCodeState extends State<ConfirmCode> {
               height: 150.h,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 FadeAnimation(
                     delay: 200,
@@ -117,7 +116,11 @@ class _ConfirmCodeState extends State<ConfirmCode> {
                     delay: 400, child: field(focus: _field2, next: _field3)),
                 FadeAnimation(
                     delay: 600, child: field(focus: _field3, next: _field4)),
-                FadeAnimation(delay: 800, child: field(focus: _field4)),
+                FadeAnimation(
+                    delay: 600, child: field(focus: _field4, next: _field5)),
+                FadeAnimation(
+                    delay: 600, child: field(focus: _field5, next: _field6)),
+                FadeAnimation(delay: 800, child: field(focus: _field6)),
               ],
             ),
             SizedBox(
@@ -130,11 +133,11 @@ class _ConfirmCodeState extends State<ConfirmCode> {
                         color: ligtTextColor,
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w400)),
-                Text("\tWait for 57 sec.",
+                Text("\tWait for 57 sec",
                     style: GoogleFonts.poppins(
                         color: ligtTextColor,
                         fontSize: 12.sp,
-                        fontWeight: FontWeight.w400)),
+                        fontWeight: FontWeight.w600)),
               ],
             ),
             SizedBox(

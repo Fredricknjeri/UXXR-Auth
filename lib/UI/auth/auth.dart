@@ -1,4 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,6 +17,19 @@ class ChooseAuth extends StatefulWidget {
 }
 
 class _ChooseAuthState extends State<ChooseAuth> {
+  
+  Future registerUser()async{
+  FirebaseAuth _auth = FirebaseAuth.instance;
+
+  // _auth.verifyPhoneNumber(phoneNumber: "", 
+  // verificationCompleted: verificationCompleted, 
+  // verificationFailed: verificationFailed, 
+  // codeSent: null, 
+  // codeAutoRetrievalTimeout: codeAutoRetrievalTimeout
+  // );
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +58,7 @@ class _ChooseAuthState extends State<ChooseAuth> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                left: 45.w,
+                left: 40.w,
               ),
               child: Text("We’ll send you a confirmation code",
                   style: GoogleFonts.poppins(
@@ -107,9 +122,8 @@ class _ChooseAuthState extends State<ChooseAuth> {
                   width: double.infinity,
                   // ignore: prefer_const_constructors
                   decoration: BoxDecoration(
-                    color: buttonColor,
-                    borderRadius:  BorderRadius.circular(8.r)
-                  ),
+                      color: buttonColor,
+                      borderRadius: BorderRadius.circular(8.r)),
                   child: Center(
                       child: Text('Continue',
                           style: GoogleFonts.poppins(
@@ -120,17 +134,63 @@ class _ChooseAuthState extends State<ChooseAuth> {
             SizedBox(
               height: 21.h,
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                right: 5.w,
-              ),
-              child: Text(
-                  "By signing up I agree to Zëdfi’s Privacy Policy and Terms of Use and allow Zedfi to use your information for future Marketing purposes.",
-                  style: GoogleFonts.poppins(
-                      color: ligtTextColor,
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w400)),
+            // Padding(
+            //   padding: EdgeInsets.only(
+            //     right: 5.w,
+            //   ),
+            //   child: Row(
+            //     children: [
+
+            Row(
+              children: [
+                Text("By signing up I agree to Zëdfi’s ",
+                    style: GoogleFonts.poppins(
+                        color: ligtTextColor,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w400)),
+                Text("Privacy Policy ",
+                    style: GoogleFonts.poppins(
+                        color: ligtTextColor,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w600)),
+                Text("and ",
+                    style: GoogleFonts.poppins(
+                        color: ligtTextColor,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w400)),
+              ],
             ),
+
+            Row(
+              children: [
+                Text("Terms of Use ",
+                    style: GoogleFonts.poppins(
+                        color: ligtTextColor,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w600)),
+                Text("and allow Zedfi to use your  information ",
+                    style: GoogleFonts.poppins(
+                        color: ligtTextColor,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w400)),
+              ],
+            ),
+
+            Row(
+              children: [
+                Text("for future",
+                    style: GoogleFonts.poppins(
+                        color: ligtTextColor,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w400)),
+                Text(" Marketing purposes.",
+                    style: GoogleFonts.poppins(
+                        color: ligtTextColor,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w600)),
+              ],
+            ),
+
             SizedBox(
               height: 34.h,
             ),
